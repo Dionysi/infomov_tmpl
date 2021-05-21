@@ -122,7 +122,7 @@ void Application::InitGL() {
 	window = CreateWindow();
 	
 	// Setup rendering of textured quad. 
-	programID = LoadShader("shader.vert", "shader.frag");
+	programID = LoadShader("assets/shader.vert", "assets/shader.frag");
 	
 	// Vertex array. 
 	glGenVertexArrays(1, &vertexArrayID);

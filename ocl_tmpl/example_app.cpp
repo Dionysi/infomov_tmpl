@@ -25,7 +25,7 @@ void ExampleApp::Tick(float dt) {
 
 	// Compute the offset.
 	timePassed += dt;
-	if (timePassed > 0.1f)
+	if (timePassed > 0.03125f)
 		timePassed = 0, offset++;
 
 	CLhelper::AcquireGLObjects(queue, 1, &renderBuffer); 
@@ -45,7 +45,7 @@ void ExampleApp::InitOpenCL() {
 	// Load and build our OpenCL source code.
 	const char* source;
 	size_t* sizes = (size_t*)malloc(sizeof(size_t) * 1);
-	source = CLhelper::ReadSource("example.cl", sizes);
+	source = CLhelper::ReadSource("assets/example.cl", sizes);
 	CLhelper::CreateProgram(program, context, 1, &source, sizes);
 	CLhelper::BuildProgram(program, deviceId);
 

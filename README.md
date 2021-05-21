@@ -33,3 +33,8 @@ Your project directory should now contain the following folders:
         - opengl32.lib
 
 You should now be all set-up.
+
+# How to use?
+The class 'Application' implements the functionality for creating a Window, creating an OpenGL texture used for rendering, rendering a textured quad and an application-loop. In the CLhelper class, you can find implementations with error checks for commonly used OpenCL calls. Use the OpenGL texture - called renderTexture, in the Application class - to render to. 
+
+To implement your own functionality, create a new class that inherits from the Application class. In this class, you can overwrite the 'Tick(float dt)' function to implement your desired behavior. 
