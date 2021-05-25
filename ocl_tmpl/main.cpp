@@ -1,8 +1,8 @@
-#include "example_app.h"
+#include "application.h"
 
 int main() {
 
-	ExampleApp app = ExampleApp(1920, 1088);
+	Application app = Application(1920, 1088);
 	app.Run();
 
 	return -1;

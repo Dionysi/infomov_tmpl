@@ -21,13 +21,11 @@
   <ItemGroup>
     <ClCompile Include="application.cpp" />
     <ClCompile Include="cl_helper.cpp" />
-    <ClCompile Include="example_app.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h" />
     <ClInclude Include="cl_helper.h" />
-    <ClInclude Include="example_app.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -4,11 +4,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="application.cpp" />
     <ClCompile Include="cl_helper.cpp" />
-    <ClCompile Include="example_app.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h" />
     <ClInclude Include="cl_helper.h" />
-    <ClInclude Include="example_app.h" />
   </ItemGroup>
 </Project>
