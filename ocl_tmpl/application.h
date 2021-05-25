@@ -53,32 +53,5 @@ protected:
 	GLFWwindow* CreateWindow();
 	/** Initializes OpenGL and our window. */
 	void InitGL();
-
-
-	/* ==== EXAMPLE STUFF ==== */
-	
-	/** Our platform. */
-	cl_platform_id platformId;
-	/** GPU handle. */
-	cl_device_id deviceId;
-	/** OpenCL context. */
-	cl_context context;
-	/** Our main command queue. */
-	cl_command_queue queue;
-	/** OpenCL program. */
-	cl_program program;
-	/** OpenCL template. */
-	cl_kernel kernel;
-	/** OpenGL render target. */
-	cl_mem renderBuffer;
-
-	/** Our work sizes. */
-	size_t globalDim[2] = { 1, 1 };
-	size_t localDim[2] = { 32, 32 };
-
-	int offset = 0;
-	float timePassed = 0.0f;
-	/** Initializes everything for OpenCL. */
-	void InitCL();
 };
 
