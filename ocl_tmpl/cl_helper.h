@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <exception>
 
-#define CHECK_CL_ERROR CLhelper::CheckCLError
 
 class CLhelper {
 
@@ -138,12 +137,5 @@ public:
 	static char* ReadSource(const char* filePath, size_t* size);
 
 private:
-	static inline bool CheckCLError(cl_int error, const char* msg) {
-		if (error == CL_SUCCESS) return true;
-
-		printf(msg);
-		printf("\nError code %i.\n", error);
-		throw std::exception(msg);
-		return false;
-	}
+	static bool CheckCLError(cl_int error, const char* msg);
 };
