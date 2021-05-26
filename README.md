@@ -13,11 +13,10 @@ To setup the project, we must perform the following steps:
     - Glew: http://glew.sourceforge.net/. Download the 'Windows 32-bit and 64-bit' binaries. Copy the glew32.lib file from lib\Release\x64 to you 'lib' folder in the project directory. Similarly, copy the entire content from the GL folder from \include\GL to a new directory in your 'include' directory of your project named 'glew' (you must create this directory yourself).
 
 Your project directory should now contain the following folders:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- $(ProjectDir)
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- glew/[contents from the glew_download_folder/include/GL]
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- glfw/[contents from the glfw_download_folder/include/GLFW]
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- KHR/...
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- glad/...
+- $(ProjectDir)/glew/[contents from the glew_download_folder/include/GL]
+- $(ProjectDir)/glfw/[contents from the glfw_download_folder/include/GLFW]
+- $(ProjectDir)/KHR/...
+- $(ProjectDir)/glad/...
 
 4. Go to your project properties in Visual Studio (make sure you select the x64 platform and both configurations). Here we must do the following:
     - In [C/C++ -> General] add these additional include directories:
