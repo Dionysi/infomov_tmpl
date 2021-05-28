@@ -16,7 +16,6 @@ Your project directory should now contain the following folders:
 - $(ProjectDir)/glew/[contents from the glew_download_folder/include/GL]
 - $(ProjectDir)/glfw/[contents from the glfw_download_folder/include/GLFW]
 - $(ProjectDir)/KHR/...
-- $(ProjectDir)/glad/...
 
 4. Go to your project properties in Visual Studio (make sure you select the x64 platform and both configurations). Here we must do the following:
     - In [C/C++ -> General] add these additional include directories:

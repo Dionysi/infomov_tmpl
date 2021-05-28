@@ -2,7 +2,8 @@
 
 #include <string>
 #include <CL/cl_gl.h>
-#include <glad/glad_wgl.h>
+#include <glew/glew.h>
+#include <Windows.h>
 
 #define CHECK_CL_ERROR CLhelper::CheckCLError
 
