@@ -10,7 +10,7 @@ To setup the project, we must perform the following steps:
 
 3. We must download the following binaries:
     - GLFW: https://www.glfw.org/download. Download the 64-bit Windows binaries. From the corresponding vc-folder copy the 'glfw3.lib' file to the lib directory in your project. Include the entire GLFW folder from the glfw-include folder to your project's include directory.
-    - Glew: http://glew.sourceforge.net/. Download the 'Windows 32-bit and 64-bit' binaries. Copy the glew32.lib file from lib\Release\x64 to you 'lib' folder in the project directory. Similarly, copy the entire content from the GL folder from \include\GL to a new directory in your 'include' directory of your project named 'glew' (you must create this directory yourself).
+    - Glew: http://glew.sourceforge.net/. (1) Download the 'Windows 32-bit and 64-bit' binaries. (2) Copy the glew32.lib file from lib\Release\x64 to you 'lib' folder in the project directory. (3) Copy the entire content from the GL folder from .\include\GL to a new directory in your 'include' directory of your project named 'glew' (you must create this directory yourself). (4) Finally, copy the glew.dll file from .\bin\Release\x64 to your solution directory. 
 
 Your project directory should now contain the following folders:
 - $(ProjectDir)/glew/[contents from the glew_download_folder/include/GL]
