@@ -120,10 +120,10 @@ GLFWwindow* Application::CreateWindow() {
 void Application::InitGL() {
 	// Create our window. 
 	window = CreateWindow();
-	
+
 	// Setup rendering of textured quad. 
 	programID = LoadShader("assets/shader.vert", "assets/shader.frag");
-	
+
 	// Vertex array. 
 	glGenVertexArrays(1, &vertexArrayID);
 	glBindVertexArray(vertexArrayID);
@@ -153,6 +153,7 @@ Application::Application(uint32_t width, uint32_t height)
 
 	// Initialize our window and OpenGL.
 	InitGL();
+	InitCL();
 }
 
 Application::~Application() {
@@ -213,5 +214,45 @@ void Application::Run() {
 }
 
 void Application::Tick(float dt) {
-	// Implement your functionality here!
+	// Compute the offset.
+	timePassed += dt;
+	if (timePassed > 0.03125f)
+		timePassed = 0, offset++;
+
+	CLhelper::AcquireGLObjects(queue, 1, &renderBuffer);
+	CLhelper::SetKernelArg(kernel, 2, sizeof(int), &offset);
+	CLhelper::EnqueueKernel(queue, kernel, 2, globalDim, localDim);
+	CLhelper::ReleaseGLObjects(queue, 1, &renderBuffer);
+	CLhelper::WaitForQueueToFinish(queue);
+}
+
+
+void Application::InitCL() {
+	// Set our global dimensions.
+	globalDim[0] = width;
+	globalDim[1] = height;
+
+	// Select our GPU and create an OpenCL context.
+	CLhelper::GetPlatformAndDevice(platformId, deviceId);
+	CLhelper::PrintDeviceInfo(deviceId);
+	CLhelper::CreateContext(context, platformId, &deviceId);
+
+	// Load and build our OpenCL source code.
+	const char* source;
+	size_t* sizes = (size_t*)malloc(sizeof(size_t) * 1);
+	source = CLhelper::ReadSource("assets/example.cl", sizes);
+	CLhelper::CreateProgram(program, context, 1, &source, sizes);
+	CLhelper::BuildProgram(program, deviceId);
+
+	// Create required components for our 
+	CLhelper::CreateCommandQueue(queue, context, deviceId, NULL);
+
+	// Create our buffers.
+	CLhelper::CreateCLBufferFromGLTexture(renderBuffer, context, renderTexture);
+
+	CLhelper::CreateKernel(kernel, program, "example");
+	CLhelper::SetKernelArg(kernel, 0, sizeof(uint32_t), &width);
+	CLhelper::SetKernelArg(kernel, 1, sizeof(uint32_t), &height);
+	CLhelper::SetKernelArg(kernel, 2, sizeof(int), &offset);
+	CLhelper::SetKernelArg(kernel, 3, sizeof(cl_mem), &renderBuffer);
 }
