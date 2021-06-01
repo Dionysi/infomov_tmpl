@@ -103,7 +103,14 @@ public:
 	 * @param[in] offset		The offset in bytes in the buffer object to write to.
 	*/
 	static void WriteCLBuffer(cl_command_queue queue, cl_mem buffer, size_t numBytes, const void* data, size_t offset = 0);
-
+	/** Enqueue commands to read from a buffer object to host memory.
+	* @param[in] queue			Refers to the command-queue in which the read command will be queued.
+	* @param[in] buffer			Refers to a valid buffer object.
+	* @param[in] blocking		Indicates if the read operations are blocking or non-blocking. If blocking_read is CL_TRUE i.e. the read command is blocking, clEnqueueReadBuffer does not return until the buffer data has been read and copied into memory pointed to by ptr.
+	* @param[in] numBytes		Number of bytes to be read from the buffer.
+	* @param[in] data			The pointer to buffer in host memory where data is to be read into.
+	* @param[in] offset			The offset in bytes in the buffer object to read from.
+	*/
 	static void ReadCLBuffer(cl_command_queue queue, cl_mem buffer, cl_bool blocking, size_t numBytes, void* dst, size_t offset = 0);
 	/** Enqueue a kernel.
 	* @param[in] queue					A valid command-queue. The kernel will be queued for execution on the device associated with command_queue.
