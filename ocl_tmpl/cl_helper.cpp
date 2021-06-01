@@ -303,10 +303,14 @@ void CLhelper::SetKernelArg(cl_kernel kernel, cl_uint idx, size_t size, const vo
 }
 
 void CLhelper::WriteCLBuffer(cl_command_queue queue, cl_mem buffer, size_t numBytes, const void* data, size_t offset) {
-	// Try to set the kernel argument.
 	cl_int errorCode = clEnqueueWriteBuffer(queue, buffer, CL_TRUE, offset, numBytes, data, 0, NULL, NULL);
 	// Check for errors.
 	CHECK_CL_ERROR(errorCode, "could not write to cl buffer.");
+}
+
+void CLhelper::ReadCLBuffer(cl_command_queue queue, cl_mem buffer, cl_bool blocking, size_t numBytes, void* dst, size_t offset) {
+	cl_int errorCode = clEnqueueReadBuffer(queue, buffer, blocking, offset, numBytes, dst, 0, 0, 0);
+	CHECK_CL_ERROR(errorCode, "could not read from cl buffer.");
 }
 
 void CLhelper::EnqueueKernel(cl_command_queue queue, cl_kernel kernel, cl_uint workDim, size_t* globalWorkSize, size_t* localWorkSize, size_t globalWorkOffset) {

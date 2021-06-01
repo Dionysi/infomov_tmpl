@@ -103,6 +103,8 @@ public:
 	 * @param[in] offset		The offset in bytes in the buffer object to write to.
 	*/
 	static void WriteCLBuffer(cl_command_queue queue, cl_mem buffer, size_t numBytes, const void* data, size_t offset = 0);
+
+	static void ReadCLBuffer(cl_command_queue queue, cl_mem buffer, cl_bool blocking, size_t numBytes, void* dst, size_t offset = 0);
 	/** Enqueue a kernel.
 	* @param[in] queue					A valid command-queue. The kernel will be queued for execution on the device associated with command_queue.
 	* @param[in] kernel					A valid kernel object. The OpenCL context associated with kernel and command_queue must be the same.
