@@ -126,10 +126,10 @@ enum class Key : int {
 	KeyMenu = GLFW_KEY_MENU
 };
 
-enum class KeyState : int {
+enum class KeyState : char {
+	Release = 0,
 	KeyDown = 1 << 0,
-	Pressed = 1 << 1,
-	Release = 1 << 2
+	Pressed = 1 << 1
 };
 
 KeyState operator&(KeyState a, KeyState b);

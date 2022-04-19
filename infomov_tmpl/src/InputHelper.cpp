@@ -1,7 +1,9 @@
 #include "inputhelper.h"
 #include <map>
 
-#define NUM_KEYS 350
+#include <bitset>
+
+#define NUM_KEYS 1 << 9
 
 /** Mapping from input-helper to the key-maps.*/
 std::map<GLFWwindow*, KeyState*> currentKeys = std::map<GLFWwindow*, KeyState*>();
@@ -50,12 +52,18 @@ InputHelper::InputHelper(GLFWwindow* window) :
 }
 
 void InputHelper::Update() {
-	// Update the keyboard state.
-	for (int i = 0; i < NUM_KEYS; i++) {
-		previousKeys[m_Window][i] = currentKeys[m_Window][i];
 
-		if ((int)(currentKeys[m_Window][i] & KeyState::Pressed))
-			currentKeys[m_Window][i] = (KeyState)GLFW_RELEASE;
+	int* previousStates = (int*)previousKeys[m_Window];
+	int* currentStates = (int*)currentKeys[m_Window];
+
+	static const int lSize = NUM_KEYS >> 2;
+
+	// Update the keyboard state.
+	for (int i = 0; i < lSize; i++) {
+		((int*)previousStates)[i] = currentStates[i];
+
+		static const int mask = ((int)KeyState::Pressed) << 24 | ((int)KeyState::Pressed) << 16 | ((int)KeyState::Pressed) << 8 | ((int)KeyState::Pressed);
+		currentStates[i] &= (currentStates[i] ^ mask);
 	}
 
 	// Update mouse position.
