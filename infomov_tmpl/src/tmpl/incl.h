@@ -17,6 +17,56 @@ struct Color {
 	Color(float r, float g, float b) : r(r), g(g), b(b), a(1.0f) {}
 	Color(float r, float g, float b, float a) : r(r), g(g), b(b), a(a) {}
 
+	Color operator/(float rhs) {
+		return Color(r / rhs, g / rhs, b / rhs, a / rhs);
+	}
+	Color operator/=(float rhs) {
+		r /= rhs, g /= rhs, b /= rhs, a /= rhs;
+	}
+	Color operator*(float rhs) {
+		return Color(r * rhs, g * rhs, b * rhs, a * rhs);
+	}
+	Color operator*=(float rhs) {
+		r *= rhs, g *= rhs, b *= rhs, a *= rhs;
+	}
+	Color operator+(float rhs) {
+		return Color(r + rhs, g + rhs, b + rhs, a + rhs);
+	}
+	Color operator+=(float rhs) {
+		r += rhs, g += rhs, b += rhs, a += rhs;
+	}
+	Color operator-(float rhs) {
+		return Color(r - rhs, g - rhs, b - rhs, a - rhs);
+	}
+	Color operator-=(float rhs) {
+		r -= rhs, g -= rhs, b -= rhs, a -= rhs;
+	}
+
+	Color operator/(Color rhs) {
+		return Color(r / rhs.r, g / rhs.g, b / rhs.b, a / rhs.a);
+	}
+	Color operator/=(Color rhs) {
+		r /= rhs.r, g /= rhs.g, b /= rhs.b, a /= rhs.a;
+	}
+	Color operator*(Color rhs) {
+		return Color(r * rhs.r, g * rhs.g, b * rhs.b, a * rhs.a);
+	}
+	Color operator*=(Color rhs) {
+		r *= rhs.r, g *= rhs.g, b *= rhs.b, a *= rhs.a;
+	}
+	Color operator+(Color rhs) {
+		return Color(r + rhs.r, g + rhs.g, b + rhs.b, a + rhs.a);
+	}
+	Color operator+=(Color rhs) {
+		r += rhs.r, g += rhs.g, b += rhs.b, a += rhs.a;
+	}
+	Color operator-(Color rhs) {
+		return Color(r - rhs.r, g - rhs.g, b - rhs.b, a - rhs.a);
+	}
+	Color operator-=(Color rhs) {
+		r -= rhs.r, g -= rhs.g, b -= rhs.b, a -= rhs.a;
+	}
+
 	float r, g, b, a;
 };
 

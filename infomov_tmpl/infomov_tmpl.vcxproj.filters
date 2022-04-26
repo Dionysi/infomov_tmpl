@@ -18,49 +18,47 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ocl.cpp">
+    <ClCompile Include="src\tmpl\ocl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Shader.cpp">
+    <ClCompile Include="src\tmpl\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\incl.cpp">
+    <ClCompile Include="src\tmpl\incl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\InputHelper.cpp">
+    <ClCompile Include="src\tmpl\InputHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Surface.cpp">
+    <ClCompile Include="src\tmpl\Surface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\App.cpp">
+    <ClCompile Include="src\tmpl\App.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\ocl.h">
+    <ClInclude Include="src\tmpl\ocl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Shader.h">
+    <ClInclude Include="src\tmpl\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\incl.h">
+    <ClInclude Include="src\tmpl\incl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\InputHelper.h">
+    <ClInclude Include="src\tmpl\InputHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Surface.h">
+    <ClInclude Include="src\tmpl\Surface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\App.h">
+    <ClInclude Include="src\tmpl\App.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="assets\shaders\simple_tex.vert" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="assets\shaders\simple_tex.frag" />
+    <CopyFileToFolders Include="assets\shaders\simple_tex.vert" />
   </ItemGroup>
 </Project>

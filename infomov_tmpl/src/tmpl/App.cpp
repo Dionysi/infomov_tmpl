@@ -17,6 +17,13 @@ App::App(uint width, uint height)
 	m_InputHelper = new InputHelper(m_Window);
 }
 
+App::~App()
+{
+	delete m_InputHelper;
+	delete m_RenderSurface;
+	delete m_Window;
+}
+
 void App::Run()
 {	
 	// Variables for computing time passed per frame.

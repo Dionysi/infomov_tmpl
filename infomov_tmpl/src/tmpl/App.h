@@ -12,6 +12,10 @@ public:
 	* @param[in] height			Window and render height.
 	*/
 	App(uint width, uint height);
+	/*
+	* Free all allocated memory.
+	*/
+	~App();
 
 	/* Start the application main-loop.
 	*/
@@ -25,7 +29,6 @@ protected:
 	virtual void Draw(float dt) = 0;
 	virtual void RenderGUI(float dt) = 0;
 
-private:
 	/* Render width and height. */
 	uint m_Width, m_Height;
 	/* Average frame time. */
@@ -39,6 +42,7 @@ private:
 	/* Input. */
 	InputHelper* m_InputHelper;
 
+private:
 	/* Initializes OpenGL and the GLFW window. */
 	void InitGLFW();
 	/* Initializes the Dear ImGui library.  */
